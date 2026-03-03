@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ARI UNITN Interactions</title>
-    <link rel="stylesheet" href="../tools/style/style.css">
+    <title>ARI UNITN Torso camera</title>
+    <link rel="stylesheet" href="../tools/style/style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script type="module" src="js/main.js"></script>
 </head>
@@ -26,20 +26,12 @@
         </div>
 
         <div class="menu-header">
-            <h1 class="main-title">Interactions</h1>
+            <h1 class="main-title">Torso camera</h1>
         </div>
 
-        <div class="btns-row" id="interactions_menu">
-            <div class="btn-container btn-ari btn-action" id="present_btn">
-                <div id="present_btn_label" class="btn-label">Present the room</div>
-            </div>
-            
-            <div class="btn-container btn-ari btn-action" id="shake_hand_btn">
-               <div id="shake_hand_cam_btn_label" class="btn-label">Shake my hand</div>
-            </div>
-
-            <div class="btn-container btn-ari btn-action" id="speech_btn">
-                <div id="speech_btn_label" class="btn-label">Speech & Dialogue</div>
+        <div class="camera-stream-wrapper">
+            <div class="camera-feed-container" id="video_stream">
+                <img src="../tools/assets/unitn_logo.jpg" alt="ARI Camera Feed" class="camera-canvas">
             </div>
         </div>
     </div>

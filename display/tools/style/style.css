@@ -1,0 +1,281 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.main-container {
+    position: relative; 
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-title {
+    color: #000000;
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+.sub-title {
+    color: #555;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.unitn-logo-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.unitn-logo {
+    height: 130px;
+    width: auto;
+    display: block;
+}
+/* Posizionamento del gruppo in alto a sinistra */
+.top-left-controls {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    display: flex;
+    gap: 15px; /* Spazio tra i tre tasti */
+    z-index: 100;
+}
+
+/* Stile comune per i tasti tondi */
+.control-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #f8f9fa;
+    border: 2px solid #990000; /* Richiamo al rosso UNITN */
+    color: #990000;
+    border-radius: 50%; /* Li rende perfettamente tondi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Effetto estetico al passaggio (anche se non funzionano ancora) */
+.control-btn:hover {
+    background-color: #990000;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+.btn-ari {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 60px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 300px;
+}
+
+.btn-action {
+    background-color: #990000;
+    color: white;
+    box-shadow: 0 10px 20px rgba(153, 0, 0, 0.2);
+}
+
+.btn-action:hover {
+    background-color: #cc0000;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(153, 0, 0, 0.4);
+}
+
+.btns-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    width: fit-content;
+}
+
+/* Container della "Tabella" */
+.interaction-table {
+    display: flex;
+    flex-direction: column; /* Mette i bottoni uno sotto l'altro */
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    border: 2px solid #990000; /* Bordo esterno rosso UNITN */
+    border-radius: 15px;
+    overflow: hidden; /* Taglia gli angoli dei bottoni interni per seguire il raggio del bordo */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+/* Singola riga / bottone */
+.btn-row-item {
+    padding: 25px 40px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    background-color: #ffffff;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center; /* Allineamento a sinistra tipo lista */
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #eeeeee; /* Linea sottile di separazione */
+    display: flex;
+    align-items: center;
+}
+
+/* Rimuove il bordo dall'ultima riga */
+.btn-row-item:last-child {
+    border-bottom: none;
+}
+
+/* Effetto Hover (Passaggio Mouse) */
+.btn-row-item:hover {
+    background-color: #990000; /* Diventa rosso al passaggio */
+    color: #ffffff;            /* Il testo diventa bianco */
+    padding-left: 50px;       /* Piccolo slittamento a destra per feedback visivo */
+}
+
+/* Effetto Active (Pressione) */
+.btn-row-item:active {
+    background-color: #770000;
+}
+
+/* Layout per i Punti di Interesse */
+.poi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Spazio netto tra i bottoni per evitare tocchi errati */
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Bottone POI distanziato (Solo Testo) */
+.poi-item {
+    background-color: #990000;
+    color: #ffffff;
+    border: 3px solid #990000; /* Bordo rosso UNITN */
+    padding: 30px 40px;
+    border-radius: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Effetto Hover */
+.poi-item:hover {
+    background-color: #ffffff;
+    color: #990000;
+    transform: translateY(-5px); /* Sollevamento verticale */
+    box-shadow: 0 10px 25px rgba(153, 0, 0, 0.3);
+}
+
+/* Effetto alla pressione */
+.poi-item:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper per la visione */
+.camera-stream-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%; 
+    max-width: 1200px; /* Ancora più grande per una visione immersiva */
+    margin-top: 40px;  /* Compensa la mancanza del titolo */
+}
+
+/* Il contenitore del video */
+.camera-feed-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    background-color: #000;
+    border: 6px solid #990000; /* Cornice rossa UNITN leggermente più spessa */
+    border-radius: 25px;       /* Angoli più arrotondati per un look moderno */
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* L'immagine del feed */
+.camera-canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Sfondo oscurato */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* Scatola del pop-up */
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 4px solid #990000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    max-width: 400px;
+}
+
+.modal-content h3 { color: #990000; font-size: 2rem; margin-top: 0; }
+
+/* Bottoni del modal */
+.modal-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+
+.modal-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-confirm { background: #990000; color: white; }
+.btn-confirm:hover { background: #cc0000; }
+
+.btn-cancel { background: #eee; color: #333; }
+.btn-cancel:hover { background: #ddd; }

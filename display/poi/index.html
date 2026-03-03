@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARI UNITN Points of Interest</title>
+    <link rel="stylesheet" href="../tools/style/style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="top-left-controls">
+            <div class="control-btn" title="Back">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div> 
+    
+            <div class="control-btn" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </div>
+    
+            <div class="control-btn" title="Volume">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+        </div>
+        <div class="unitn-logo-container">
+            <img src="../tools/assets/unitn_logo.jpg" alt="Logo UNITN" class="unitn-logo">
+        </div>
+
+        <div class="menu-header">
+            <h1 class="main-title">Points of Interest</h1>
+            <p class="sub-title">Where do you want to go?</p>
+        </div>
+
+        <div class="poi-list">
+            <div class="poi-item" id="poi_1">Laboratory - Center</div>
+            <div class="poi-item" id="poi_2">Laboratory - Nord</div>
+            <div class="poi-item" id="poi_3">Laboratory - Door</div>
+        </div>
+        <div id="confirmation-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <h3>Are you sure?</h3>
+                <p id="modal-text">Do you want to go there?</p>
+                <div class="modal-buttons">
+                    <button id="confirm-yes" class="modal-btn btn-confirm">YES</button>
+                    <button id="confirm-no" class="modal-btn btn-cancel">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
