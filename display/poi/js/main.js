@@ -4,9 +4,9 @@ import CommonDemoARI from '../../tools/js/core.js';
 
 class PageManager {
   constructor() {
-    this.host = "http://" + window.location.hostname;
+    this.url = "ws://" + window.location.hostname + ":9090";
     this.ros = new RRLIB.Ros({
-      host: this.host
+      url: this.url
     });
     this.common_demo = new CommonDemoARI({
       ros: this.ros
