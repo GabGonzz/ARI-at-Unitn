@@ -1,4 +1,4 @@
-import '../../welcome_common/js/lib/jquery.min.js';
+import '../../tools/js/lib/jquery.min.js';
 import { RRLIB } from '../../js/pallib.js';
 import CommonDemoARI from '../../tools/js/core.js';
 
@@ -23,20 +23,20 @@ let page_manager = new PageManager();
 $(document).ready(function() {
   page_manager.init();
 
-  const cameraTopic = new RRLIB.Topic({
-    ros: page_manager.ros,
-    name: '/torso_front_camera/color/image_raw/compressed', // Cambia in /torso_front_camera/... se sei nella pagina torso
-    messageType: 'sensor_msgs/CompressedImage'
-  });
+  // const cameraTopic = new RRLIB.Topic({
+  //   ros: page_manager.ros,
+  //   name: '/torso_front_camera/color/image_raw/compressed', // Cambia in /torso_front_camera/... se sei nella pagina torso
+  //   messageType: 'sensor_msgs/CompressedImage'
+  // });
   
-  // 3. Sottoscrizione al flusso dati
-  cameraTopic.subscribe(function(message) {
-    const imageElement = document.getElementById('camera-feed');
-    if (imageElement) {
-      // Iniettiamo i dati Base64 direttamente nel tag img
-      imageElement.src = 'data:image/jpeg;base64,' + message.data;
-    }
-  });
+  // // 3. Sottoscrizione al flusso dati
+  // cameraTopic.subscribe(function(message) {
+  //   const imageElement = document.getElementById('camera-feed');
+  //   if (imageElement) {
+  //     // Iniettiamo i dati Base64 direttamente nel tag img
+  //     imageElement.src = 'data:image/jpg;base64,' + message.data;
+  //   }
+  // });
   // Back to the previous screen
   $(".control-btn[title='Back']").on("click", function() {
     // page_manager.common_demo.logBack("back_from_torso_cam");

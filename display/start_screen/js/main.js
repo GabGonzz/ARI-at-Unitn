@@ -22,15 +22,8 @@ let page_manager = new PageManager();
 
 $(document).ready(function() {
   page_manager.init();
-  // Back to the previous screen
-  $(".control-btn[title='Back']").on("click", function() {
-    // page_manager.common_demo.logBack("back_from_speech_menu");
-    // page_manager.common_demo.sendRobotIntentInput("unitn_interactions_menu");
-    // parent.switchConfig("unitn_interactions_menu");
-    window.location.href = "../unitn_interactions_menu/index.html";
-  });  
-  // Back to the home screen
-  $(".control-btn[title='Home']").on("click", function() {
+
+  $(".main-container").on("click", function() {
     // page_manager.common_demo.logBack("back_to_unitn_menu");
     // page_manager.common_demo.sendRobotIntentInput("unitn_main_menu");
     // parent.switchConfig("unitn_main_menu");

@@ -1,4 +1,4 @@
-import '../../welcome_common/js/lib/jquery.min.js';
+import '../../tools/js/lib/jquery.min.js';
 import { RRLIB } from '../../js/pallib.js';
 import CommonDemoARI from '../../tools/js/core.js';
 

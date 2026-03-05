@@ -1,0 +1,133 @@
+{
+    "tts": {
+        "start_page": "Hello! <mark name='doTrick trickName=show_left'/> Welcome! Press the screen to start",
+        "main_menu": "What do you want me to do?<mark name='doTrick trickName=alive_1'/>",
+        "ari_demo_menu": "Check what I can do!<mark name='doTrick trickName=bow'/>",
+        "human_perception": "I am able to the detect faces and bodies in the scene. You can easily visualize the humans I can see through a human-friendly interface",
+        "speech_dialogue": "You can ask me few questions to try my dialogue capabilities",
+        "expressiveness": "I can follow you with my gaze, and also change my eyes expressions",
+        "navigation": "I can build a map of the environment and navigate around to specific points",
+        "reasoning": "I can store information gathered though my sensors and interaction, and then infer and reason based on it",
+        "motions": "I can move my body to convey message",
+        "pal_presentation": {
+            "text_slide_1": "Hi! <mark name='doTrick trickName=bow'/> Welcome to PAL Robotics' booth,<mark name='doTrick trickName=show_right'/> my name is ARI, and let me introduce you, where I come from",
+            "text_slide_2": "PAL Robotics is located in the sunny Barcelona, Spain, <mark name='doTrick trickName=nod'/> and was founded in 2004, by a small group of engineers, and has grown tremendously since then.",
+            "text_slide_3": "Since the beginning of the company, <mark name='doTrick trickName=alive_5'/> PAL Robotics, has created over 14 different robots, of which one of them, is me!",
+            "text_slide_4": "As you can see, there are a bunch of different robots, <mark name='doTrick trickName=show_left'/> such as social robots - that’s where I belong. Humanoid robots, <mark name='doTrick trickName=start_ari'/> mobile manipulators, and robots, for intralogistics",
+            "text_slide_5": "Besides of creating robots, <mark name='doTrick trickName=show_right'/> PAL Robots, are experts in many fields, such as navigation, software, control - you name it.",
+            "learn_more": "If you would like to learn more, about PAL Robotics, scan the QR on my screen, or <mark name='doTrick trickName=bow'/> talk to my human colleagues ,at the booth!"
+        }
+    },
+    "web": {
+        "main_menu": {
+            "page_title": "What do you want me to do?",
+            "buttons": {
+                "play_game": "Play game",
+                "do_not_click": "Do not click here",
+                "ari_demo_menu": "Check what I can do"   
+            }
+        },
+        "ari_demo_menu": {
+            "page_title": "ARI",
+            "page_subtitle": "Check what I can do",
+            "buttons": {
+                "human_perception": "Human Perception",
+                "speech_dialogue": "Speech & Dialogue",
+                "expressiveness": "Expressiveness & Gaze",
+                "navigation": "Navigation",
+                "reasoning": "Reasoning & Knowledge",
+                "motions": "Motions"
+            }
+        },
+        "pal_robotics_menu": {
+            "page_title": "PAL Robotics",
+            "page_subtitle": "Learn more about our company",
+            "buttons": {
+                "about_us": "ABOUT US",
+                "use_cases": "USE CASES",
+                "eu_projects": "EU PROJECTS"
+            }
+        },
+        "human_perception": "Human perception",
+        "speech_dialogue": {
+            "page_title": "Speech & Dialogue",
+            "page_subtitle": "Try to ask me any of these questions",
+            "questions": [
+                "What is your name?",
+                "How tall are you?",
+                "How much do you weight?",
+                "How old are you?",
+                "When is your birthday?",
+                "What can you do?"
+            ]
+        },
+        "play_demo": "Play demo",
+        "expressiveness": "Expressiveness & Gaze",
+        "navigation": "Navigation",
+        "reasoning": "Reasoning & Knowledge",
+        "motions": "Motions",
+        "use_cases": {
+            "page_title": "Use Cases",
+            "gallery": "Gallery",
+            "page_subtitle": "Learn more about our robotics solutions",
+            "photos": [
+                "use_case_photo_0",
+                "use_case_photo_1",
+                "use_case_photo_2",
+                "use_case_photo_3",
+                "use_case_photo_4",
+                "use_case_photo_5",
+                "use_case_photo_6",
+                "use_case_photo_7"
+            ]
+        },
+        "eu_projects": {
+            "page_title": "EU Projects",
+            "page_subtitle": "Learn more about our collaborative projects",
+            "projects": [{
+                    "name": "Canopies",
+                    "id": "canopies",
+                    "popup_image": "../welcome_common/images/projects/canopies.png"
+                },
+                {
+                    "name": "OpenDR",
+                    "id": "open_dr",
+                    "popup_image": "../welcome_common/images/projects/open_dr.png"
+                },
+                {
+                    "name": "SHAPES",
+                    "id": "shapes",
+                    "popup_image": "../welcome_common/images/projects/shapes.png"
+                },
+                {
+                    "name": "SPRING",
+                    "id": "spring",
+                    "popup_image": "../welcome_common/images/projects/spring.png"
+                },
+                {
+                    "name": "AGIMUS",
+                    "id": "agimus",
+                    "popup_image": "../welcome_common/images/projects/agimus.png"
+                },
+                {
+                    "name": "PERSEO",
+                    "id": "perseo",
+                    "popup_image": "../welcome_common/images/projects/perseo.png"
+                },
+                {
+                    "name": "Pillar Robots",
+                    "id": "pillar_robots",
+                    "popup_image": "../welcome_common/images/projects/pillar_robots.png"
+                },
+                {
+                    "name": "NeuTouch",
+                    "id": "neutouch",
+                    "popup_image": "../welcome_common/images/projects/neutouch.png"
+                }
+            ]
+        },
+        "about_us": {
+            "page_title": "ABOUT US"
+        }
+    }
+}
