@@ -24,7 +24,7 @@ $(document).ready(function() {
   page_manager.init();
 
   // 1. Definiamo il topic della camera come nell'esempio
-    // Usiamo /compressed perché è l'unico che può essere messo in un tag <img>
+  //   Usiamo /compressed perché è l'unico che può essere messo in un tag <img>
     // const cameraTopic = new RRLIB.Topic({
     //     ros: page_manager.ros,
     //     name: '/head_front_camera/color/image_raw/compressed',

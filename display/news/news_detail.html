@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ARI UNITN Torso camera</title>
-    <link rel="stylesheet" href="../tools/style/style.css"> 
+    <title>News Detail - ARI</title>
+    <link rel="stylesheet" href="../tools/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script type="module" src="js/main.js"></script>
 </head>
@@ -21,7 +21,7 @@
             <span id="battery-level">--%</span>
         </div>
     </div>
-    <div class="main-container">
+    <div class="main-container" style="padding-top: 20px;"> 
         <div class="top-left-controls">
             <div class="control-btn" title="Back">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -39,17 +39,18 @@
             <img src="../tools/assets/unitn_logo.jpg" alt="Logo UNITN" class="unitn-logo">
         </div>
 
-        <div class="menu-header">
-            <h1 class="main-title">
-                <i class="fa-solid fa-vest" style="margin-right: 20px; color: #990000;"></i>
-                Torso camera
-            </h1>
-        </div>
-
-        <div class="camera-stream-wrapper">
-            <div class="camera-feed-container" id="video_stream">
-                <img id="camera-feed" class="camera-canvas" src="" alt="Loading...">
+        <div class="news-detail-content" style="max-width: 850px; margin: 0 auto; text-align: left;">
+        
+            <div style="text-align: center; margin-bottom: 20px; margin-top: -10px;">
+                <button id="ari-read-btn" class="btn-ari btn-read-large">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>ARI, read this news</span>
+                </button>
             </div>
+
+            <div id="detail-date" class="news-date" style="margin-bottom: 5px;"></div>
+            <h1 id="detail-title" class="main-title" style="font-size: 2.8rem; margin-top: 0; margin-bottom: 15px; line-height: 1.1;"></h1>
+            <p id="detail-text" style="font-size: 1.4rem; line-height: 1.5; color: #333;"></p>
         </div>
     </div>
 </body>

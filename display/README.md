@@ -2,6 +2,7 @@
 This part contains the implementation of the User Interface used in ARI's display. The interface is composed of:
 * **The start screen:** A simple start screen which contains an image and the title, and when pressed it navigates to the main menu.
 * **The main menu:** A menu which displays all the possible actions that the system can perform using the interface.
+* **The news list:** A list which displays all the news of the events happening in the University.
 * **The list of the points of interest:** A list that displays the possible points of interest to which ARI can go by selecting it.
 * **The interactions menu:** A menu that shows the possible interactions that can be done with ARI.
 * **The head camera page:** A page displaying a live feed of what the camera on ARI's head is seeing.
@@ -25,6 +26,11 @@ Every page is composed of a `index.html` file and a `js/` directory which contai
 │   ├── index.html
 │   └── js/
 │       └── main.js
+├── news                         # News list
+│   ├── index.html
+│   ├── js
+│   │   └── main.js
+│   └── news_detail.html         # Psge for the news details
 ├── poi/                         # Points of interest list
 │   ├── index.html
 │   └── js/

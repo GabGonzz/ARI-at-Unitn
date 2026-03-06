@@ -7,6 +7,20 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+    <div class="status-bar">
+        <div class="status-item" id="status-date">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>--/--/--</span>
+        </div>
+        <div class="status-item" id="status-time">
+            <i class="fa-solid fa-clock"></i>
+            <span>00:00</span>
+        </div>
+        <div class="status-item" id="status-battery">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+            <span id="battery-level">--%</span>
+        </div>
+    </div>
     <div class="main-container">
         <div class="top-left-controls">
             <div class="control-btn" title="Back">
@@ -26,7 +40,10 @@
         </div>
 
         <div class="menu-header">
-            <h1 class="main-title">Speech & Dialogue</h1>
+            <h1 class="main-title">
+                <i class="fa-solid fa-comments" style="margin-right: 20px; color: #990000;"></i>
+                Speech & Dialogue
+            </h1>
             <p class="sub-title">Selelect an option</p>
         </div>
 

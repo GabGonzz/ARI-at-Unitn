@@ -33,6 +33,8 @@ class CommonDemoARI {
         
         // Inizializza il volume e lo slider
         this.volumeSlider();
+
+        this.updateStatusBar();
         
         // Callback finale (esegue quello che scriverai nelle singole pagine)
         if (cb) cb();
@@ -104,6 +106,89 @@ class CommonDemoARI {
             priority: 100,
             confidence: 1.0
         });
+    }
+    // Metodo per gestire l'aggiornamento della Status Bar
+    updateStatusBar() {
+        const update = () => {
+            const now = new Date();
+            
+            // Aggiorna Ora
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeSpan = document.querySelector('#status-time span');
+            if (timeSpan) timeSpan.textContent = `${hours}:${minutes}`;
+            
+            // Aggiorna Data
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const dateSpan = document.querySelector('#status-date span');
+            if (dateSpan) dateSpan.textContent = now.toLocaleDateString('it-IT', options);
+        };
+
+        setInterval(update, 1000);
+        update();
+        
+        // Attiva i listener ROS per l'energia
+        // this.subscribeBattery();
+    }
+
+    subscribeBattery() {
+        // Topic per la percentuale
+        const batteryTopic = new RRLIB.Topic({
+            ros: this.ros,
+            name: '/power/battery_level',
+            messageType: 'std_msgs/Float32'
+        });
+
+        // Topic per lo stato di ricarica
+        const chargingTopic = new RRLIB.Topic({
+            ros: this.ros,
+            name: '/power/is_charging',
+            messageType: 'std_msgs/Bool'
+        });
+
+        let isCharging = false;
+
+        // Monitoriamo la ricarica
+        chargingTopic.subscribe((msg) => {
+            isCharging = msg.data;
+            this.updateBatteryUI(null, isCharging); // Aggiorna solo l'icona
+        });
+
+        // Monitoriamo il livello
+        batteryTopic.subscribe((msg) => {
+            let level = Math.round(msg.data);
+            this.updateBatteryUI(level, isCharging);
+        });
+    }
+
+    // Funzione interna per aggiornare graficamente l'icona e il testo
+    updateBatteryUI(level, isCharging) {
+        const batterySpan = document.getElementById('battery-level');
+        const batteryIcon = document.querySelector('#status-battery i');
+
+        if (batterySpan && level !== null) {
+            batterySpan.textContent = level + "%";
+        }
+
+        if (batteryIcon) {
+            // Se sta caricando, mostra SEMPRE il fulmine
+            if (isCharging) {
+                batteryIcon.className = "fa-solid fa-bolt";
+                batteryIcon.style.color = "#f1c40f"; // Giallo ricarica
+            } else if (level !== null) {
+                // Se non carica, icona dinamica in base al livello
+                if (level <= 20) {
+                    batteryIcon.className = "fa-solid fa-battery-quarter";
+                    batteryIcon.style.color = "#e74c3c"; // Rosso
+                } else if (level <= 50) {
+                    batteryIcon.className = "fa-solid fa-battery-half";
+                    batteryIcon.style.color = "#f39c12"; // Arancione/Giallo
+                } else {
+                    batteryIcon.className = "fa-solid fa-battery-full";
+                    batteryIcon.style.color = "#27ae60"; // Verde
+                }
+            }
+        }
     }
 }
 

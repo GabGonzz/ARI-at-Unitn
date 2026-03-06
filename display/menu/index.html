@@ -7,6 +7,20 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+    <div class="status-bar">
+        <div class="status-item" id="status-date">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>--/--/--</span>
+        </div>
+        <div class="status-item" id="status-time">
+            <i class="fa-solid fa-clock"></i>
+            <span>00:00</span>
+        </div>
+        <div class="status-item" id="status-battery">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+            <span id="battery-level">--%</span>
+        </div>
+    </div>
     <div class="main-container">
         <div class="top-left-controls">
             <div class="control-btn" title="Volume">
@@ -18,21 +32,36 @@
         </div>
 
         <div class="menu-header">
-            <h1 class="main-title">Main Menu</h1>
+            <h1 class="main-title">
+                <i class="fa-solid fa-list-ul" style="margin-right: 20px; color: #990000;"></i>
+                Main Menu
+            </h1>
         </div>
 
         <div class="btns-row" id="self_presentation_menu">
             <div class="btn-ari btn-action" id="poi_btn">
-                <div id="poi_btn_label" class="btn-label">Points of interest</div>
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="btn-label">Points of interest</div>
             </div>
-            <div class="btn-ari btn-action" id="front_cam_btn">
-                <div id="front_cam_btn_label" class="btn-label">Head camera</div>
-            </div>
-            <div class="btn-ari btn-action" id="torso_cam_btn">
-                <div id="torso_cam_btn_label" class="btn-label">Torso camera</div>
-            </div>
+    
             <div class="btn-ari btn-action" id="interactions_btn">
-                <div id="interactions_btn_label" class="btn-label">Interactions</div>
+                <i class="fa-solid fa-handshake"></i>
+                <div class="btn-label">Interactions</div>
+            </div>
+    
+            <div class="btn-ari btn-action" id="front_cam_btn">
+                <i class="fa-solid fa-user"></i>
+                <div class="btn-label">Head camera</div>
+            </div>
+    
+            <div class="btn-ari btn-action" id="torso_cam_btn">
+                <i class="fa-solid fa-vest"></i>
+                <div class="btn-label">Torso camera</div>
+            </div>
+
+            <div class="btn-ari btn-action" id="news_btn">
+                <i class="fa-solid fa-newspaper"></i>
+                <div class="btn-label">UNITN News</div>
             </div>
         </div>
     </div>

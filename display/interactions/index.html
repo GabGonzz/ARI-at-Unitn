@@ -7,6 +7,20 @@
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+    <div class="status-bar">
+        <div class="status-item" id="status-date">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>--/--/--</span>
+        </div>
+        <div class="status-item" id="status-time">
+            <i class="fa-solid fa-clock"></i>
+            <span>00:00</span>
+        </div>
+        <div class="status-item" id="status-battery">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+            <span id="battery-level">--%</span>
+        </div>
+    </div>
     <div class="main-container">
         <div class="top-left-controls">
             <div class="control-btn" title="Back">
@@ -26,19 +40,26 @@
         </div>
 
         <div class="menu-header">
-            <h1 class="main-title">Interactions</h1>
+            <h1 class="main-title">
+                <i class="fa-solid fa-wand-magic-sparkles" style="margin-right: 20px; color: #990000;"></i>
+                Interactions
+            </h1>
+            <p class="sub-title">What do you want me to do?</p>
         </div>
 
         <div class="btns-row" id="interactions_menu">
             <div class="btn-ari btn-action" id="present_btn">
+                <i class="fa-solid fa-chalkboard-user"></i>
                 <div id="present_btn_label" class="btn-label">Present the room</div>
             </div>
             
             <div class="btn-ari btn-action" id="shake_hand_btn">
+                <i class="fa-solid fa-handshake"></i>
                <div id="shake_hand_cam_btn_label" class="btn-label">Shake my hand</div>
             </div>
 
             <div class="btn-ari btn-action" id="speech_btn">
+                <i class="fa-solid fa-comments"></i>
                 <div id="speech_btn_label" class="btn-label">Speech & Dialogue</div>
             </div>
         </div>

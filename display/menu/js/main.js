@@ -46,4 +46,10 @@ $(document).ready(function() {
     // parent.switchConfig("unitn_interactions_menu");
     window.location.href = "../unitn_interactions_menu/index.html";
   });
+  $("#news_btn").on("click", function() {
+    // page_manager.common_demo.logBack("unitn_interactions_menu");
+    // page_manager.common_demo.sendRobotIntentInput("unitn_interactions_menu");
+    // parent.switchConfig("unitn_interactions_menu");
+    window.location.href = "../unitn_news_list/index.html";
+  });
 });

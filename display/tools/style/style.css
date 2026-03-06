@@ -36,6 +36,40 @@ body, html {
     margin-top: 10px;
 }
 
+.status-bar {
+    position: absolute; /* Cambiato in absolute per seguire il layout dei tasti control */
+    top: 25px;          /* Allineata all'altezza dei tasti di controllo e del logo */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;          /* Più spazio tra gli elementi per un look più pulito */
+    padding: 0;
+    background: transparent; /* Rimuove lo sfondo bianco */
+    backdrop-filter: none;   /* Rimuove l'effetto vetro */
+    box-shadow: none;        /* Rimuove l'ombra */
+    border: none;            /* Rimuove i bordi */
+    z-index: 100;            /* Stesso livello dei tasti di controllo */
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;  /* Leggermente più grande per compensare la mancanza di sfondo */
+    font-weight: 700;   /* Più spesso per risaltare sul gradiente dello sfondo */
+    color: #333;        /* Grigio scuro/Nero per massima leggibilità */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.status-item i {
+    color: #990000;     /* Rosso UNITN per richiamare i bottoni */
+    font-size: 1.3rem;
+}
+
+#status-battery i {
+    color: #27ae60; /* Verde per la batteria (cambieremo via JS se scarica) */
+}
+
 /* Aggiungila prima o dopo .start-screen-img */
 .image-container {
     width: 100%;
@@ -151,6 +185,15 @@ body, html {
     min-width: 400px;
 }
 
+.btn-ari i {
+    font-size: 50px;          /* Quasi il doppio di prima */
+    color: #ffffff;           /* Bianco per contrasto sul rosso UNITN */
+    min-width: 80px;          /* Opzionale: riserva uno spazio fisso all'icona */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Gestisce il testo dentro il bottone */
 .btn-label {
     font-family: 'Segoe UI', sans-serif;
@@ -170,6 +213,20 @@ body, html {
     background-color: #cc0000;
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(153, 0, 0, 0.4);
+}
+/* Effetto alla pressione (Touch/Click) per i bottoni principali */
+.btn-ari:active {
+    transform: scale(0.95);         /* Il bottone si rimpicciolisce leggermente */
+    background-color: #770000;      /* Diventa di un rosso più scuro (scurisce il #990000) */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* L'ombra si accorcia, simulando la pressione */
+    transition: transform 0.1s ease; /* Transizione molto veloce per essere reattiva */
+}
+
+/* Applichiamo lo stesso concetto ai tasti di controllo in alto a sinistra */
+.control-btn:active {
+    transform: scale(0.9);
+    background-color: #990000;
+    color: white;
 }
 
 /* Ottimizzazione della griglia dei bottoni */
@@ -323,6 +380,7 @@ body, html {
     border: 4px solid #990000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     max-width: 400px;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .modal-content h3 { color: #990000; font-size: 2rem; margin-top: 0; }
@@ -345,3 +403,130 @@ body, html {
 
 .btn-cancel { background: #eee; color: #333; }
 .btn-cancel:hover { background: #ddd; }
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 20px;
+}
+
+.news-card {
+    background: white;
+    border-left: 8px solid #990000; /* Richiamo rosso UniTn */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-date {
+    color: #990000;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', sans-serif;
+    margin-bottom: 10px;
+}
+
+.news-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.8rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.news-card p {
+    color: #666;
+    line-height: 1.5;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.2rem;
+}
+
+.btn-read-more {
+    background-color: #990000;
+    color: #ffffff;
+    border: 2px solid #990000;
+    padding: 12px 25px; /* Un po' più di respiro per il touch */
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 15px;
+    cursor: pointer;
+    outline: none;
+    
+    /* Transizioni fluide */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(153, 0, 0, 0.2);
+    
+    /* Per evitare che il testo venga selezionato durante il tocco */
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Effetto Hover: si schiarisce leggermente e si alza */
+.btn-read-more:hover {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(153, 0, 0, 0.3);
+}
+
+/* Effetto Active: il "click" fisico che abbiamo usato negli altri bottoni */
+.btn-read-more:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 5px rgba(153, 0, 0, 0.2);
+    background-color: #770000;
+}
+
+/* Animazione opzionale: un leggero "shimmer" o freccetta che si muove */
+.btn-read-more::after {
+    content: '\f061'; /* Codice FontAwesome per la freccia destra */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    transition: transform 0.3s ease;
+}
+
+.btn-read-more:hover::after {
+    transform: translateX(5px); /* La freccetta si muove a destra quando passi sopra */
+}
+
+.btn-read-large {
+    background-color: #990000;
+    color: white;
+    border: 3px solid #990000;
+    padding: 18px 40px; /* Molto più grande */
+    border-radius: 60px;
+    font-size: 1.4rem; /* Testo più grande */
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(153, 0, 0, 0.25);
+    min-width: auto !important;
+}
+
+.btn-read-large i {
+    font-size: 1.8rem; /* Icona bella grande */
+}
+
+.btn-read-large:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(153, 0, 0, 0.35);
+}
+
+.btn-read-large:active {
+    transform: scale(0.95);
+    background-color: #770000;
+}

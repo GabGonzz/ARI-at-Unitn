@@ -4,11 +4,23 @@
     <title>ARI UNITN Head camera</title>
     <link rel="stylesheet" href="../tools/style/style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/eventemitter2.min.js"></script>
-    <script src="js/roslib.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+    <div class="status-bar">
+        <div class="status-item" id="status-date">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>--/--/--</span>
+        </div>
+        <div class="status-item" id="status-time">
+            <i class="fa-solid fa-clock"></i>
+            <span>00:00</span>
+        </div>
+        <div class="status-item" id="status-battery">
+            <i class="fa-solid fa-battery-three-quarters"></i>
+            <span id="battery-level">--%</span>
+        </div>
+    </div>
     <div class="main-container">
         <div class="top-left-controls">
             <div class="control-btn" title="Back">
@@ -28,7 +40,10 @@
         </div>
 
         <div class="menu-header">
-            <h1 class="main-title">Head camera</h1>
+            <h1 class="main-title">
+                <i class="fa-solid fa-user" style="margin-right: 20px; color: #990000;"></i>
+                Head camera
+            </h1>
         </div>
 
         <div class="camera-stream-wrapper">
