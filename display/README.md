@@ -26,11 +26,11 @@ Every page is composed of a `index.html` file and a `js/` directory which contai
 │   ├── index.html
 │   └── js/
 │       └── main.js
-├── news                         # News list
+├── news/                         # News list
 │   ├── index.html
-│   ├── js
+│   ├── js/
 │   │   └── main.js
-│   └── news_detail.html         # Psge for the news details
+│   └── news_detail.html         # Page for the news details
 ├── poi/                         # Points of interest list
 │   ├── index.html
 │   └── js/

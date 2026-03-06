@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>News Detail - ARI</title>
+    <title>ARI UNITN News Details</title>
+    <!-- style and fontawesome icons -->
     <link rel="stylesheet" href="../tools/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- script -->
     <script type="module" src="js/main.js"></script>
 </head>
 <body>
+
     <div class="status-bar">
+
         <div class="status-item" id="status-date">
             <i class="fa-solid fa-calendar-days"></i>
             <span>--/--/--</span>
         </div>
+
         <div class="status-item" id="status-time">
             <i class="fa-solid fa-clock"></i>
             <span>00:00</span>
         </div>
+
         <div class="status-item" id="status-battery">
             <i class="fa-solid fa-battery-three-quarters"></i>
             <span id="battery-level">--%</span>
         </div>
+
     </div>
+
     <div class="main-container" style="padding-top: 20px;"> 
+
         <div class="top-left-controls">
+
             <div class="control-btn" title="Back">
                 <i class="fa-solid fa-chevron-left"></i>
             </div> 
@@ -34,7 +45,9 @@
             <div class="control-btn" title="Volume">
                 <i class="fa-solid fa-volume-high"></i>
             </div>
+
         </div>
+
         <div class="unitn-logo-container">
             <img src="../tools/assets/unitn_logo.jpg" alt="Logo UNITN" class="unitn-logo">
         </div>
@@ -52,6 +65,7 @@
             <h1 id="detail-title" class="main-title" style="font-size: 2.8rem; margin-top: 0; margin-bottom: 15px; line-height: 1.1;"></h1>
             <p id="detail-text" style="font-size: 1.4rem; line-height: 1.5; color: #333;"></p>
         </div>
+        
     </div>
 </body>
 </html>

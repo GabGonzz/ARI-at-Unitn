@@ -2,31 +2,44 @@
 <html>
 <head>
     <title>ARI UNITN Menu</title>
+
+    <!-- style and fontawesome icons -->
     <link rel="stylesheet" href="../tools/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- script -->
     <script type="module" src="js/main.js"></script>
+
 </head>
 <body>
+
     <div class="status-bar">
+
         <div class="status-item" id="status-date">
             <i class="fa-solid fa-calendar-days"></i>
             <span>--/--/--</span>
         </div>
+
         <div class="status-item" id="status-time">
             <i class="fa-solid fa-clock"></i>
             <span>00:00</span>
         </div>
+
         <div class="status-item" id="status-battery">
             <i class="fa-solid fa-battery-three-quarters"></i>
             <span id="battery-level">--%</span>
         </div>
+
     </div>
+
     <div class="main-container">
+
         <div class="top-left-controls">
             <div class="control-btn" title="Volume">
                 <i class="fa-solid fa-volume-high"></i>
             </div>
         </div>
+
         <div class="unitn-logo-container">
             <img src="../tools/assets/unitn_logo.jpg" alt="Logo UNITN" class="unitn-logo">
         </div>
@@ -39,6 +52,7 @@
         </div>
 
         <div class="btns-row" id="self_presentation_menu">
+
             <div class="btn-ari btn-action" id="poi_btn">
                 <i class="fa-solid fa-location-dot"></i>
                 <div class="btn-label">Points of interest</div>
@@ -63,7 +77,9 @@
                 <i class="fa-solid fa-newspaper"></i>
                 <div class="btn-label">UNITN News</div>
             </div>
+
         </div>
+        
     </div>
 </body>
 </html>

@@ -7,19 +7,19 @@ class CommonDemoARI {
         this.demo_language = "en_GB";
         this.ari_volume = 0;
 
-        // Parametro ROS per il volume
+        // ROS parameter for the volume
         this.volume_adjust = new RRLIB.Param({
             ros: this.ros,
             name: 'volume'
         });
 
-        // Topic per il log dei dati
+        // Topic for the data log
         this.data_logger = new RRLIB.Topic({
             ros: this.ros,
             name: 'data_logger'
         });
 
-        // Topic per gli intenti (movimento/navigazione)
+        // Topic for the intents (movement/navigation, ...)
         this.user_intent = new RRLIB.Topic({
             ros: this.ros,
             name: 'intents'
@@ -28,27 +28,28 @@ class CommonDemoARI {
 
     init(cb) {
         this.pal_lib.init();
-        // Effetto di comparsa fluida della tua pagina
+        
         $(".main-container").fadeIn("slow");
         
-        // Inizializza il volume e lo slider
+        // volume slider initialization
         this.volumeSlider();
 
+        // status bar initialization
         this.updateStatusBar();
         
-        // Callback finale (esegue quello che scriverai nelle singole pagine)
+        // final callback that will execute the script of the various pages
         if (cb) cb();
     }
 
-    // Funzione per far parlare ARI
+    // Function to make ARI talk
     say(text_to_say) {
         if (text_to_say !== "")
             this.pal_lib.say(text_to_say, this.demo_language, (id) => {});
     }
 
-    // Gestione dello Slider del Volume
+    // Volume slider handler
     volumeSlider() {
-        // Inserisce l'HTML dello slider nel tuo documento (nascosto inizialmente)
+        // Insertion of the slider in the HTML page, it is hidden in the beginning
         $("body").append(
             '<div class="slidecontainer" id="volume-container" style="display:none; position:fixed; top:80px; left:20px; z-index:9999; background:white; padding:15px; border:3px solid #990000; border-radius:15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">' +
                 '<div id="minus-volume" style="cursor:pointer; font-size:24px; font-weight:bold; display:inline-block; margin-right:15px; color:#990000;">-</div>' +
@@ -57,7 +58,9 @@ class CommonDemoARI {
             '</div>'
         );
 
-        // Apre/Chiude lo slider quando clicchi sul TUO tasto volume
+        // Opens/closes the slider after each click on the volume button, the function is implemented
+        // here so to not implement it in each "main.js" file, since its behavior is the same in 
+        // the entire system
         $(".control-btn[title='Volume']").on('click', function(e) {
             e.stopPropagation();
             $("#volume-container").toggle("fast");
@@ -74,6 +77,7 @@ class CommonDemoARI {
         this.getVolume();
     }
 
+    // Function that displays the value of the volume
     getVolume() {
         this.volume_adjust.get((param) => {
             if (param >= 0) {
@@ -89,14 +93,14 @@ class CommonDemoARI {
         $("#volume-value").html(this.ari_volume);
     }
 
-    // Logga la pressione dei bottoni su ROS
+    // Function that logs each button when it is pressed
     logButton(button_id) {
         this.data_logger.publish({
             data: "Button press: " + button_id
         });
     }
 
-    // Invia comandi di intento ad ARI (es. Navigazione)
+    // Sends the intent commands to ARI (Navigation, ...)
     sendRobotIntentInput(page_intent_key, intent_="__intent_present_content__") {
         this.user_intent.publish({
             intent: intent_,
@@ -107,39 +111,42 @@ class CommonDemoARI {
             confidence: 1.0
         });
     }
-    // Metodo per gestire l'aggiornamento della Status Bar
+
+    // Function that updates the status bar at the top of each page (date, time and battery)
     updateStatusBar() {
         const update = () => {
             const now = new Date();
             
-            // Aggiorna Ora
+            // Time update
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const timeSpan = document.querySelector('#status-time span');
             if (timeSpan) timeSpan.textContent = `${hours}:${minutes}`;
             
-            // Aggiorna Data
+            // Date update
             const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
             const dateSpan = document.querySelector('#status-date span');
             if (dateSpan) dateSpan.textContent = now.toLocaleDateString('it-IT', options);
         };
 
+        // The bar is updated after each second
         setInterval(update, 1000);
         update();
         
-        // Attiva i listener ROS per l'energia
+        // Activates the ROS listener to get the battery value, currently commented because the 
+        // ROS environment is not working, but later it will
         // this.subscribeBattery();
     }
 
     subscribeBattery() {
-        // Topic per la percentuale
+        // Topic to get the battery level
         const batteryTopic = new RRLIB.Topic({
             ros: this.ros,
             name: '/power/battery_level',
             messageType: 'std_msgs/Float32'
         });
 
-        // Topic per lo stato di ricarica
+        // Topic to get if ARI's battery is charging to display it on the status bar
         const chargingTopic = new RRLIB.Topic({
             ros: this.ros,
             name: '/power/is_charging',
@@ -148,20 +155,21 @@ class CommonDemoARI {
 
         let isCharging = false;
 
-        // Monitoriamo la ricarica
+        // Subscribing to the topic to display if the battery is charging or not and display it
+        // on the status bar
         chargingTopic.subscribe((msg) => {
             isCharging = msg.data;
-            this.updateBatteryUI(null, isCharging); // Aggiorna solo l'icona
+            this.updateBatteryUI(null, isCharging); // updates only the icon
         });
 
-        // Monitoriamo il livello
+        // Subscribing to the topic to get the battery level and display it on the status bar
         batteryTopic.subscribe((msg) => {
             let level = Math.round(msg.data);
             this.updateBatteryUI(level, isCharging);
         });
     }
 
-    // Funzione interna per aggiornare graficamente l'icona e il testo
+    // Function to update the icon and the text
     updateBatteryUI(level, isCharging) {
         const batterySpan = document.getElementById('battery-level');
         const batteryIcon = document.querySelector('#status-battery i');
@@ -171,21 +179,22 @@ class CommonDemoARI {
         }
 
         if (batteryIcon) {
-            // Se sta caricando, mostra SEMPRE il fulmine
+            // If the battery is charging, a lightning bolt will appear instead of the battery level
             if (isCharging) {
                 batteryIcon.className = "fa-solid fa-bolt";
                 batteryIcon.style.color = "#f1c40f"; // Giallo ricarica
             } else if (level !== null) {
-                // Se non carica, icona dinamica in base al livello
+                // If the battery is not charging, it will be displayed its level of charge
+                // with a color which varies depending on how high is the level
                 if (level <= 20) {
                     batteryIcon.className = "fa-solid fa-battery-quarter";
-                    batteryIcon.style.color = "#e74c3c"; // Rosso
+                    batteryIcon.style.color = "#e74c3c";    // red
                 } else if (level <= 50) {
                     batteryIcon.className = "fa-solid fa-battery-half";
-                    batteryIcon.style.color = "#f39c12"; // Arancione/Giallo
+                    batteryIcon.style.color = "#f39c12";    // yellow/orange
                 } else {
                     batteryIcon.className = "fa-solid fa-battery-full";
-                    batteryIcon.style.color = "#27ae60"; // Verde
+                    batteryIcon.style.color = "#27ae60";   // green
                 }
             }
         }

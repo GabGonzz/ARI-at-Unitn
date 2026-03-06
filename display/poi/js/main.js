@@ -21,36 +21,51 @@ class PageManager {
 let page_manager = new PageManager();
 
 $(document).ready(function() {
+
   page_manager.init();
+
   // Back to the previous screen
   $(".control-btn[title='Back']").on("click", function() {
+
+    // The navigation between the pages is usually handled by some ROS functions, but while
+    // working only on the layout these are not usable, so here they are commented
     // page_manager.common_demo.logBack("back_from_poi_menu");
     // page_manager.common_demo.sendRobotIntentInput("unitn_main_menu");
     // parent.switchConfig("unitn_main_menu");
+
     window.location.href = "../unitn_main_menu/index.html";
-  });  
+  });
+
   // Back to the home screen
   $(".control-btn[title='Home']").on("click", function() {
+
+    // The navigation between the pages is usually handled by some ROS functions, but while
+    // working only on the layout these are not usable, so here they are commented
     // page_manager.common_demo.logBack("back_to_unitn_menu");
     // page_manager.common_demo.sendRobotIntentInput("unitn_main_menu");
     // parent.switchConfig("unitn_main_menu");
+
     window.location.href = "../unitn_main_menu/index.html";
   });
+
+  // Logic to acknowledge to which point of interest the user wants to go, currently only
+  // consisting of some mock buttons, later the implementation will be working
   $("#poi_1, #poi_2, #poi_3").on("click", function() {
-        // Opzionale: recuperiamo il testo del bottone per personalizzare il pop-up
-        let destinazione = $(this).text();
-        $("#modal-text").text("Do you want to go to " + destinazione + "?");
+
+        // retrieve the name of the destination to confirm if the user really wants to go there
+        let destination = $(this).text();
+        $("#modal-text").text("Do you want to go to " + destination + "?");
         
-        // Mostra il pop-up con un effetto di entrata
         $("#confirmation-modal").fadeIn(300);
     });
 
-    // 2. Quando clicchi su ANNULLA, il pop-up scompare e basta
+    // If the user cancels the decision, the pop-up disappears
     $("#confirm-no").on("click", function() {
         $("#confirmation-modal").fadeOut(300);
     });
 
-    // 3. Quando clicchi su SÌ, il pop-up scompare e basta (per ora)
+    // If the user confirms the decision, ARI will go to the destination with the user, however, currently
+    // the pop-up just disappears, later the logic will be implemented
     $("#confirm-yes").on("click", function() {
         console.log("Confirm decision");
         $("#confirmation-modal").fadeOut(300);

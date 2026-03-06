@@ -23,10 +23,16 @@ let page_manager = new PageManager();
 $(document).ready(function() {
   page_manager.init();
 
+  // When any part of the screen will be clicked, the application will start by navigating to 
+  // the main menu
   $(".main-container").on("click", function() {
-    // page_manager.common_demo.logBack("back_to_unitn_menu");
+
+    // The navigation between the pages is usually handled by some ROS functions, but while
+    // working only on the layout these are not usable, so here they are commented
+    // page_manager.common_demo.logBack("navigating_to_unitn_menu");
     // page_manager.common_demo.sendRobotIntentInput("unitn_main_menu");
     // parent.switchConfig("unitn_main_menu");
+
     window.location.href = "../unitn_main_menu/index.html";
   });
 });
